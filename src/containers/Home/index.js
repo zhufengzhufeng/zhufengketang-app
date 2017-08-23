@@ -6,6 +6,9 @@ class Home extends Component{
     chooseLesson =(type)=>{
         this.props.setCurrentLesson(type);
     };
+    componentDidMount(){
+        this.props.getSlider();
+    }
     render(){
         return (
             <div>

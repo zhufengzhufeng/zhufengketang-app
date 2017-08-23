@@ -6,3 +6,6 @@ let url = 'http://localhost:3000';
 export const getSliders = () =>{
     return get( url+'/slider');
 };
+export const getLessons =(type,offset,limit) =>{
+    return get(`${url}/lessonList/${type}/${offset}/${limit}`);
+};

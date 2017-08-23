@@ -18,3 +18,9 @@ let sliders = require('./mock/slider');
 app.get('/slider',function (req,res) {
    res.json(sliders);
 });
+let lessonList = require('./mock/lessonList');
+app.get('/lessonList/:type/:offset/:limit',function (req,res) {
+    let {type,offset,limit} = req.params;
+    console.log(type,offset,limit);
+    res.json(lessonList);
+});

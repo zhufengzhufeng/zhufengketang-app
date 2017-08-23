@@ -6,6 +6,7 @@
 
 
 ## 存入redux
+- 先定义redux中的数据长什么样子 
 - 先有服务端接口
 - 获取接口的方法 fetch获取数据
 - 通过action将获取的数据发送到reducer

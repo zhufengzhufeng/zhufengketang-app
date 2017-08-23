@@ -11,7 +11,8 @@ export default class Swiper extends Component {
             continuous: true,
             callback:(index)=>{
                 this.setState({index:index});
-            }
+            },
+            auto: 3000,
         };
         return (
             <div className="swiper">

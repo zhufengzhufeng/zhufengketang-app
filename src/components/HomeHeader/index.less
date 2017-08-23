@@ -20,8 +20,23 @@
     width: 100%;
     position: absolute;
     top:56px;
+    left: 0;
     li{border-top: 1px solid #464646;
     height: 43px;line-height: 43px;
     text-align: center;color: #fff}
   }
+}
+.fadeIn-enter {
+   opacity: 0.01;
+ }
+.fadeIn-enter.fadeIn-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.fadeIn-exit {
+  opacity: 1;
+}
+.fadeIn-exit.fadeIn-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

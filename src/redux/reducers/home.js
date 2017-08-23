@@ -27,6 +27,14 @@ export default function (state=initState,action) {
                     offset:state.lesson.offset+action.lessons.length,
                     isLoading:false
                 }
+            };
+        case Types.SET_LOADING_STATUS:
+            return {
+                ...state,
+                lesson:{
+                    ...state.lesson,
+                    isLoading:true
+                }
             }
     }
     return state;

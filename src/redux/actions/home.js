@@ -24,6 +24,7 @@ export const getLesson = () => (dispatch,getState) =>{
     let {currentLesson,lesson:{hasMore,limit,offset}} = getState().home;
     if(!hasMore)return;//没有就不要获取
     //将isLoading状态改成true
+    dispatch({type:Types.SET_LOADING_STATUS});
     getLessons(currentLesson,offset,limit).then(lesson=>{
         dispatch({
             type:Types.GET_LESSONS,

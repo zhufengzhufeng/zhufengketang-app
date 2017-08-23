@@ -10,6 +10,10 @@ export default class HomeHeader extends Component{
     changeShow =()=>{
         this.setState({isShow:!this.state.isShow})
     };
+    choose = (e) =>{
+        this.props.chooseLesson(e.target.getAttribute('type'));
+        this.changeShow();
+    };
     render(){
         return (
             <div className="home-header">
@@ -21,7 +25,7 @@ export default class HomeHeader extends Component{
                 </div>
                 <TransitionGroup>
                 {this.state.isShow?<CSSTransition timeout={1000} classNames="fadeIn">
-                    <ul className="menu-list">
+                    <ul className="menu-list" onClick={this.choose}>
                         <li type="1">Node课程培训</li>
                         <li type="2">HTML培训课程</li>
                         <li type="3">视频课程</li>

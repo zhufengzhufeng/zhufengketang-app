@@ -10,6 +10,7 @@ import './common/index.less';
 import store from './redux/store';
 window._store = store;
 import {Provider} from 'react-redux';
+import Detail from "./containers/Detail/index";
 render(<Provider store={store}>
     <Router>
         <App>
@@ -17,6 +18,7 @@ render(<Provider store={store}>
                 <Route exact path={'/'} component={Home}/>
                 <Route path={'/lesson'} component={Lesson}/>
                 <Route path={'/profile'} component={Profile}/>
+                <Route path={'/detail'} component={Detail}/>
             </Switch>
         </App>
     </Router>

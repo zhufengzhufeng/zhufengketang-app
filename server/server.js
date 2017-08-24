@@ -50,7 +50,6 @@ app.post('/reg',function (req,res) {
     req.body.password = md5(req.body.password);
     console.log(req.body);
     User.findOne({username:req.body.username}).then(doc=>{
-        console.log(doc);
         if(doc){
             res.json({err:'用户存在了'})
         }else{

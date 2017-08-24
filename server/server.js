@@ -70,5 +70,17 @@ app.get('/auth',function (req,res) {
    }
 });
 
+//登录
+app.post('/login',function (req,res) {
+    req.body.password = md5(req.body.password);
+    User.findOne(req.body).then(data=>{
+       if(data){
+           req.session.user = data;
+           res.json(req.session.user);
+       }else{
+           res.json({err:'校验你的用户名或密码'})
+       }
+    });
+});
 
 

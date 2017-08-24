@@ -1,5 +1,5 @@
 
-import {regs,auths} from '../../api/user';
+import {regs,auths,logins} from '../../api/user';
 import * as Types from '../action-types';
 import util from '../../common/util';
 import {push} from 'react-router-redux';
@@ -47,4 +47,21 @@ export const validate = ()=> (dispatch)=>{
             dispatch(push('/lesson'));
         }
     });
+};
+export const login = (userInfo) => (dispatch)=>{
+    logins(userInfo).then(data=>{
+        if(data.err){
+            dispatch({
+                type:Types.SET_ERROR,
+                err:data.err
+            });
+        }else{
+            util.set('user',data);
+            dispatch({
+                type:Types.SET_USER_INFO,
+                userInfo:data
+            });
+            dispatch(push('/lesson'));
+        }
+    })
 };

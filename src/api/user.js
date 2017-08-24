@@ -10,3 +10,8 @@ export const regs = (userInfo) =>{
 export const auths = () =>{
     return get(url+'/auth');
 };
+
+//登录接口
+export const logins = (userInfo) =>{
+    return post(url+'/login',userInfo)
+};

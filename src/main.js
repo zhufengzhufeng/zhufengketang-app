@@ -17,13 +17,13 @@ import Reg from "./containers/Reg/index";
 import {ConnectedRouter} from 'react-router-redux';
 import createHistory from 'history/createHashHistory';
 let history = createHistory();
-
+import PrivateRoute from './PrivateRoute';
 render(<Provider store={store}>
     <ConnectedRouter history={history}>
         <App>
             <Switch>
                 <Route exact path={'/'} component={Home}/>
-                <Route path={'/lesson'} component={Lesson}/>
+                <PrivateRoute path={'/lesson'} component={Lesson}/>
                 <Route path={'/profile'} component={Profile}/>
                 <Route path={'/detail'} component={Detail}/>
                 <Route path={'/login'} component={Login}/>

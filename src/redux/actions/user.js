@@ -1,7 +1,8 @@
 
 import {regs,auths} from '../../api/user';
 import * as Types from '../action-types';
-import util from '../../common/util'
+import util from '../../common/util';
+import {push} from 'react-router-redux';
 export const reg = (userInfo) => (dispatch)=>{
     regs(userInfo).then(data=>{
         console.log(data);
@@ -15,7 +16,8 @@ export const reg = (userInfo) => (dispatch)=>{
             dispatch({
                 type:Types.SET_USER_INFO,
                 userInfo:data,
-            })
+            });
+            dispatch(push('/lesson')); //跳转路由
         }
     })
 };

@@ -10,7 +10,8 @@ export default class ScrollList extends Component{
         this.state = {flag:false}
     }
     //等待接收的属性有element 在绑定事件
-    componentWillReceiveProps(nextProps){ //父组件数据更新 会触发子组件的WillReceiveProps
+    componentWillReceiveProps(nextProps){ //父组件数据更新 会触发子组件的WillReceiveProps,此钩子函数 父组件没有发生状态的变化子组件不更新
+        console.log('scroll');
         if(nextProps.element && !this.state.flag){
             //节流
             nextProps.element.addEventListener('scroll',()=>{

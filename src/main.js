@@ -12,6 +12,7 @@ window._store = store;
 import {Provider} from 'react-redux';
 import Detail from "./containers/Detail/index";
 import Login from "./containers/Login/index";
+import Reg from "./containers/Reg/index";
 render(<Provider store={store}>
     <Router>
         <App>
@@ -21,6 +22,7 @@ render(<Provider store={store}>
                 <Route path={'/profile'} component={Profile}/>
                 <Route path={'/detail'} component={Detail}/>
                 <Route path={'/login'} component={Login}/>
+                <Route path={'/reg'} component={Reg}/>
             </Switch>
         </App>
     </Router>

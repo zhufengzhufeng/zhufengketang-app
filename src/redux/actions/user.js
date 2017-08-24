@@ -35,3 +35,16 @@ export const auth = () => (dispatch) =>{
        }
     });
 };
+
+export const validate = ()=> (dispatch)=>{
+    auths().then(data=>{
+        if(data.username){
+            util.set('user',data); //存入到sessionStorage中
+            dispatch({
+                type:Types.SET_USER_INFO,
+                userInfo:data
+            });
+            dispatch(push('/lesson'));
+        }
+    });
+};

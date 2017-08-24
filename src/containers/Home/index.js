@@ -8,7 +8,8 @@ import ScrollList from "../../components/ScrollList/index";
 import util from '../../common/util'
 class Home extends Component{
     chooseLesson =(type)=>{
-        this.props.setCurrentLesson(type);
+        this.props.setCurrentLesson(type); //只改变了类型，没有重置数据
+        this.props.getLesson();//重新获取当前类型数据
     };
     componentDidMount(){
         // 判断redux中是否存放了数据 如果有则不去获取数据

@@ -14,7 +14,14 @@ let initState = {
 export default function (state=initState,action) {
     switch (action.type){
         case Types.SET_CURRENT_LESSON:
-            return {...state,currentLesson:action.val};
+            return {
+                ...state,currentLesson:action.val,
+                lesson:{
+                    ...state.lesson,
+                    lessonList:[],
+                    offset:0
+                }
+            };
         case Types.GET_SLIDERS:
             return {...state,sliders:action.sliders}
         case Types.GET_LESSONS:

@@ -61,5 +61,13 @@ app.post('/reg',function (req,res) {
     });
 });
 
+//验证用户是否登录
+app.get('/auth',function (req,res) {
+   if(req.session.user){
+       res.json(req.session.user)
+   }else{
+       res.json({}); //没有登录过 => userInfo:{}
+   }
+});
 
 

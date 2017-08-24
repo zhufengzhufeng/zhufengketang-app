@@ -1,6 +1,7 @@
 
-import {regs} from '../../api/user';
-import * as Types from '../action-types'
+import {regs,auths} from '../../api/user';
+import * as Types from '../action-types';
+import util from '../../common/util'
 export const reg = (userInfo) => (dispatch)=>{
     regs(userInfo).then(data=>{
         console.log(data);
@@ -10,10 +11,24 @@ export const reg = (userInfo) => (dispatch)=>{
                 err:data.err
             })
         }else{
+            util.set('user',data); //这里备用一份数据信息,以后做同步验证的时候可以使用 这个数据
             dispatch({
                 type:Types.SET_USER_INFO,
                 userInfo:data,
             })
         }
     })
+};
+// 验证是否登录
+export const auth = () => (dispatch) =>{
+    auths().then(data=>{
+       if(data.username){
+           dispatch({
+               type:Types.SET_USER_INFO,
+               userInfo:data
+           })
+       }else{
+           //如果没登录 取到登录页
+       }
+    });
 };

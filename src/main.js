@@ -13,8 +13,13 @@ import {Provider} from 'react-redux';
 import Detail from "./containers/Detail/index";
 import Login from "./containers/Login/index";
 import Reg from "./containers/Reg/index";
+
+import {ConnectedRouter} from 'react-router-redux';
+import createHistory from 'history/createHashHistory';
+let history = createHistory();
+
 render(<Provider store={store}>
-    <Router>
+    <ConnectedRouter history={history}>
         <App>
             <Switch>
                 <Route exact path={'/'} component={Home}/>
@@ -25,5 +30,5 @@ render(<Provider store={store}>
                 <Route path={'/reg'} component={Reg}/>
             </Switch>
         </App>
-    </Router>
+    </ConnectedRouter>
 </Provider>,document.getElementById('app'));

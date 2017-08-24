@@ -11,6 +11,7 @@ import store from './redux/store';
 window._store = store;
 import {Provider} from 'react-redux';
 import Detail from "./containers/Detail/index";
+import Login from "./containers/Login/index";
 render(<Provider store={store}>
     <Router>
         <App>
@@ -19,6 +20,7 @@ render(<Provider store={store}>
                 <Route path={'/lesson'} component={Lesson}/>
                 <Route path={'/profile'} component={Profile}/>
                 <Route path={'/detail'} component={Detail}/>
+                <Route path={'/login'} component={Login}/>
             </Switch>
         </App>
     </Router>
